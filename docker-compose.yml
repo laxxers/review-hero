@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  database:
+    image: postgres:alpine
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: review-hero
+      POSTGRES_USER: review-hero
+      POSTGRES_DB: review-hero
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: development
+    depends_on:
+      - database
+    ports:
+      - "3000:3000"
+
+volumes:
+  dbdata:
