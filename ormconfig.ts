@@ -13,9 +13,9 @@ const source = new DataSource({
   username: configService.get('DATABASE_USERNAME'),
   password: configService.get('DATABASE_PASSWORD'),
   database: configService.get('DATABASE_MA<E'),
-  entities: ['dist/**/*.entity{.ts,.js}'],
-  subscribers: ['dist/**/*.subscriber{.ts,.js}'],
-  migrations: ['dist/database/migrations/*{.ts,.js}'],
+  entities: ['src/**/*.entity{.ts,.js}'],
+  subscribers: ['src/**/*.subscriber{.ts,.js}'],
+  migrations: ['src/database/migrations/*{.ts,.js}'],
 });
 
 export default source;
